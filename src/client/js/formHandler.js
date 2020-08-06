@@ -10,11 +10,13 @@ function handleSubmit(event) {
     fetch('http://localhost:3000/analyzeTxt', {
             method: 'POST',
             credentials: 'same-origin',
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({name: formText}), // body data type must match "Content-Type" header
     })
+    .then(res => res.json())
     .then((res) => {
         document.getElementById('results').innerHTML = res.subjectivity
     })

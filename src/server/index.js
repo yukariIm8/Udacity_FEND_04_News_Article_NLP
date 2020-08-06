@@ -57,16 +57,33 @@ const analyzeTxt = async (req, res) => {
     console.log(txt)
     console.log(baseURL+apiKey+output+text+txt+model+lang);
     const resultPromise = await fetch(baseURL+apiKey+output+text+txt+model+lang)
-    .then((res) => {   // Extract JSON payload from Promise.
-        return res.json();
-    })
-    .then((json) => {
-        res.send(json);
-    })
-    .catch((error) => {
-        console.log('something went wrong: ', error.message);
-    })
+    // Extract JSON payload from Promise.
+    .then(res => res.json())
+    // Send JSON object to client.
+    .then(json => res.send(json))
+    // Handling Error.
+    .catch(error => console.log('something went wrong: ', error.message)
+    );
 };
+
+// const analyzeTxt = async (req, res) => {
+//     let txt = req.body.name;
+//     console.log(txt)
+//     console.log(baseURL+apiKey+output+text+txt+model+lang);
+//     const resultPromise = await fetch(baseURL+apiKey+output+text+txt+model+lang)
+//     // Extract JSON payload from Promise.
+//     .then((res) => {
+//         return res.json();
+//     })
+//     // Send JSON object to client.
+//     .then((json) => { 
+//         res.send(json);
+//     })
+//     // Handling Error.
+//     .catch((error) => {
+//         console.log('something went wrong: ', error.message);
+//     });
+// };
 
 // const analyzeTxt = async (req, res) => {
 //     let txt = req.body.name;
