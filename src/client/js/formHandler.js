@@ -1,3 +1,11 @@
+const updateUI = (data) => {
+    document.getElementById('score').innerHTML = 'Score: ' + data.score_tag
+    document.getElementById('agreement').innerHTML = 'Agreement: ' + data.agreement
+    document.getElementById('subjectivity').innerHTML = 'Subjectivity: ' + data.subjectivity
+    document.getElementById('confidence').innerHTML = 'Confidence: ' + data.confidence
+    document.getElementById('irony').innerHTML = 'Irony: ' + data.irony
+}
+
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -14,20 +22,12 @@ function handleSubmit(event) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({name: formText}), // body data type must match "Content-Type" header
+            body: JSON.stringify({name: formText}),
     })
     .then(res => res.json())
     .then((res) => {
-        document.getElementById('results').innerHTML = res.subjectivity
+        updateUI(res);
     })
 }
-    /*
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8081/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
-    */
 
 export { handleSubmit }

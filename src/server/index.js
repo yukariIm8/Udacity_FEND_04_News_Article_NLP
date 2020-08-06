@@ -8,11 +8,6 @@ let cors = require('cors')
 
 dotenv.config();
 
-// Call Sentiment Analysis
-// let textapi = new meaningCloud({
-//    application_key: process.env.API_KEY
-// });
-
 const app = express()
 
 app.use(cors())
@@ -39,12 +34,7 @@ app.listen(3000, function () {
     console.log('NLP app listening on port 3000!')
 })
 
-/*
-app.get('/test', function (req, res) {
-    res.json(mockAPIResponse)
-})
-*/
-
+// Global variables.
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1?key=';
 const apiKey = process.env.API_KEY
 const output = '&of=json';
@@ -66,40 +56,4 @@ const analyzeTxt = async (req, res) => {
     );
 };
 
-// const analyzeTxt = async (req, res) => {
-//     let txt = req.body.name;
-//     console.log(txt)
-//     console.log(baseURL+apiKey+output+text+txt+model+lang);
-//     const resultPromise = await fetch(baseURL+apiKey+output+text+txt+model+lang)
-//     // Extract JSON payload from Promise.
-//     .then((res) => {
-//         return res.json();
-//     })
-//     // Send JSON object to client.
-//     .then((json) => { 
-//         res.send(json);
-//     })
-//     // Handling Error.
-//     .catch((error) => {
-//         console.log('something went wrong: ', error.message);
-//     });
-// };
-
-// const analyzeTxt = async (req, res) => {
-//     let txt = req.body.name;
-//     console.log(txt)
-//     console.log(baseURL+apiKey+output+text+txt+model+lang);
-//     const resultPromise = await fetch(baseURL+apiKey+output+text+txt+model+lang)
-//     .then((response) => { // Extract JSON payload.
-//         return response.json();
-//     })
-//     .then((json) => {
-//         console.log(json);
-//     })
-//     .catch((error) => {
-//         console.log('something went wrong: ', error.message);
-//     })
-// };
-
 app.post('/analyzeTxt', analyzeTxt);
-
