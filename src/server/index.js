@@ -38,15 +38,15 @@ app.listen(3000, function () {
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1?key=';
 const apiKey = process.env.API_KEY
 const output = '&of=json';
-const text = '&txt=';
 const model = '&model=general';
-const lang = '&lang=en'; 
+const lang = '&lang=en';
+const url = '&url=';
 
 const analyzeTxt = async (req, res) => {
     let txt = req.body.name;
     console.log(txt)
-    console.log(baseURL+apiKey+output+text+txt+model+lang);
-    const resultPromise = await fetch(baseURL+apiKey+output+text+txt+model+lang)
+    console.log(baseURL+apiKey+output+model+lang+url+txt);
+    const resultPromise = await fetch(baseURL+apiKey+output+model+lang+url+txt)
     // Extract JSON payload from Promise.
     .then(res => res.json())
     // Send JSON object to client.
