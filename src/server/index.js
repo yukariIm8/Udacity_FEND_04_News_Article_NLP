@@ -57,14 +57,11 @@ const analyzeTxt = async (req, res) => {
     console.log(txt)
     console.log(baseURL+apiKey+output+text+txt+model+lang);
     const resultPromise = await fetch(baseURL+apiKey+output+text+txt+model+lang)
-    .then((response) => { // Extract JSON payload.
-        return response.json();
+    .then((res) => {   // Extract JSON payload from Promise.
+        return res.json();
     })
     .then((json) => {
-        console.log(json);
-    })
-    .then((data) => {
-        res.send(data);
+        res.send(json);
     })
     .catch((error) => {
         console.log('something went wrong: ', error.message);
@@ -89,8 +86,3 @@ const analyzeTxt = async (req, res) => {
 
 app.post('/analyzeTxt', analyzeTxt);
 
-/*
-app.post('/analyzeTxt', function (req, res) {
-    res.send(`https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&of=json&txt=${formTxt}&model=general&lang=en`)
-})
-*/
