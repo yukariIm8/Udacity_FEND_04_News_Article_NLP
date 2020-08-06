@@ -1,8 +1,8 @@
 let path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
-const dotenv = require('dotenv');
-const fetch = require("node-fetch");
+const dotenv = require('dotenv')
+const fetch = require('node-fetch')
 let bodyParser = require('body-parser')
 let cors = require('cors')
 
