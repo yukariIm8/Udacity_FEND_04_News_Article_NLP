@@ -2,7 +2,7 @@ import { checkUrl } from "../src/client/js/urlChecker"
  
 describe("Testing the submit functionality", () => {
     test("Testing the checkUrl() function for valid url", () => {
-           let url = "https://www.goodnewsnetwork.org/teen-starts-petsitting-service-to-donate-to-senior-dog-home/";
+           let url = "https://www.npr.org/2020/08/06/899679852/news-brief-beirut-explosion-trump-on-twitter-and-facebook-national-conventions";
            let response = checkUrl(url);
            expect(response).toBeDefined();
            expect(response).toBe(true);
