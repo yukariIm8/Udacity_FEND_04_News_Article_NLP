@@ -14,12 +14,10 @@ const clearUI = () => {
     document.getElementById('irony').innerHTML = ''
 }
 
-
 function handleSubmit(event) {
     event.preventDefault()
-
     clearUI();
-    
+
     // check what text was put into the form field
     let formText = document.getElementById('name').value
     if (Client.checkUrl(formText)) {
