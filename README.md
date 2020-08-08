@@ -1,5 +1,5 @@
 # News Article Evaluation with Natural Language Processing
-![Landing Page](./image/image.JPG?raw=true "Landing Page")
+![News Article Evaluation](./src/client/image/app-design.JPG?raw=true "News Article Evaluation")
 
 ## Project Overview
 
@@ -7,11 +7,14 @@ In this project, I have built a web tool that allows users to run Natural Langua
 
 ## What did I do?
 I have implemented the followings on top of the starter code provided by [Udacity](https://www.udacity.com/).
-- Setting up Webpack
-- Webpack Loaders and Plugins
-- Creating layouts and page design with Sass
-- Service workers
-- Using APIs and creating requests to external urls
+- Setting up Webpack for development and production.
+- Setting up Webpack Loaders and Plugins.
+- Developing front end and back end JavaScript to handle the requests to external API on form submission.
+- Developing functionalities to validate the form input.
+- Creating layouts and page design with Sass.
+- Setting up Service workers.
+- Writing Unit tests for the functions defined in the src/client/js directory using Jest Framework.
+
 
 ## Tech stack
 - Programming Languages - JavaScript, SCSS, HTML
@@ -19,7 +22,7 @@ I have implemented the followings on top of the starter code provided by [Udacit
 - Web application framework for routing - Express
 - Build tool - Webpack. 
 - External script - Service Worker
-- External API - [meaning cloud: sentiment analysis](https://www.meaningcloud.com/products/sentiment-analysis)
+- External API - [meaning cloud](https://www.meaningcloud.com/products/sentiment-analysis) (sentiment analysis)
 
 ## Getting started
 ### Step 1: Install Dependencies
@@ -35,7 +38,7 @@ Go to [here](https://www.meaningcloud.com/developer/create-account). Signing up 
 
 ### Step 3: Declare your API key as an Environment Variables
 - Create a new `.env` file in the root of your project.
-- Fill the ```.env```file with your API keys like this.
+- Fill the `.env` file with your API keys like this.
 ```
 API_ID="**************************"
 ```
@@ -54,6 +57,7 @@ npm run test
 ```
 
 ### Step 6: Running the Production Server
+- Open a new terminal window.
 - Compile the code.
 ```bash
 npm run build-prod
@@ -64,4 +68,4 @@ npm start
 ```
 
 ### Step 7: Accessing to localhost
-- Access ```localhost: 8000```, and try the app!
+- Access `localhost:8080`, and try the app!
